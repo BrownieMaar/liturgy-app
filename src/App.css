@@ -1,38 +1,93 @@
+:root {
+  --foreground-color: #D9ED92;
+  --background-highlight: #1E6091;
+  --background-color: #184E77;
+  --foreground-highlight: #B5E48C;
+}
+
+/* https://coolors.co/palette/d9ed92-b5e48c-99d98c-76c893-52b69a-34a0a4-168aad-1a759f-1e6091-184e77 */
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  background-color: var(--background-color);
   min-height: 100vh;
+  color: var(--foreground-color);
+}
+
+p {
+  margin: .5rem 0;
+}
+
+.footer-div {
+  background-color: var(--background-highlight);
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  left: 10px;
+  width: calc(100% - 20px - 2rem);
+  height: 2rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-around;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--foreground-highlight);
 }
 
-.App-link {
-  color: #61dafb;
+.main-display {
+  display: flex;
+  flex-direction: row;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-display > div {
+  transition: all 0.5s;
+  font-size: large;
+  text-align: left;
+  padding: 1rem 1rem;
+  margin: 1rem;
+  border: 2px solid var(--foreground-color);
+  border-radius: 1rem;
+  transition: border 1s;
+}
+
+.liturgy-display {
+  min-width: 250px;
+}
+
+.liturgy-display:hover {
+  transition: border 1s;
+  border: 2px solid var(--foreground-highlight);
+}
+
+.tree-modification-button {
+  opacity: 0;
+
+  margin-left: 0.3rem;
+
+  border: 1px solid var(--foreground-color);
+  border-radius: 5px;
+
+  color: var(--foreground-color);
+  background-color: inherit;
+
+  transition: opacity 0.2s;
+}
+
+.tree-modification-button:hover {
+  background-color: var(--foreground-color);
+  color: var(--background-color);
+
+  cursor: pointer;
+}
+
+.tree-element:hover>.tree-modification-button {
+  transition: opacity 0.2s;
+  opacity: 1;
+}
+
+.clickable {
+  cursor: pointer;
+}
+.clickable:hover {
+  text-decoration: underline;
 }

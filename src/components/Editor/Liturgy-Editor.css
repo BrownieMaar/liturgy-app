@@ -1,0 +1,129 @@
+@font-face {
+  font-family: liturgy;
+  src: url(../../fonts/liturgy.ttf);
+}
+
+.liturgy-edit {
+  flex-grow: 1;
+  max-height: 80vh;
+  overflow-y:auto;
+  scroll-behavior: auto;
+}
+
+.lit-structure {
+  border: 1px solid var(--foreground-color);
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.liturgy-edit>div {
+  display: flex;
+  align-items: center;
+}
+
+.liturgy-edit>div>h1 {
+  margin: 0;
+  font-size: 30px;
+}
+
+.for-h1 {
+  height: 40px;
+}
+
+.for-h1>input {
+  font-size: 20px;
+  padding: 5px;
+
+  border: 1px solid var(--foreground-color);
+  border-radius: 5px;
+  color: var(--foreground-color);
+  background-color: var(--background-highlight);
+}
+
+.for-p {
+  height: 3rem;
+}
+
+.for-p>input {
+  font-size: 18px;
+  padding: 5px;
+  margin: .5rem 0;
+  height: 1.5rem;
+  width: calc(inherit * 2);
+
+  border: 1px solid var(--foreground-color);
+  border-radius: 5px;
+  color: var(--foreground-color);
+  background-color: var(--background-highlight);
+}
+
+button {
+  margin-left: 0.3rem;
+  height: 2rem;
+  min-width: 2rem;
+
+  border: 1px solid var(--foreground-color);
+  border-radius: 1rem;
+
+  color: var(--foreground-color);
+  background-color: inherit;
+}
+
+button:hover {
+  background-color: var(--foreground-color);
+  color: var(--background-color);
+
+  cursor: pointer;
+}
+
+.liturgy-edit>div>button {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.liturgy-edit>div:hover>button {
+  transition: opacity 0.2s;
+  opacity: 1;
+}
+
+input {
+  width: fit-content;
+}
+
+.lit-markup {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.lit-font {
+  font-weight: bold;
+  color: red;
+}
+
+.grad-preview {
+  background-color: white;
+  color: black;
+  font-family: "Book Antiqua";
+  padding: 0.3rem;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  margin: 15px 3px;
+  border-radius: 5px;
+  background: #3b3b3b84;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

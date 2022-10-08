@@ -1,3 +1,6 @@
+import { useState } from "react";
+import "./LiturgyTreeDisplay.css";
+
 const displayLiturgyElement = async (route, methods) => {
     const response = await fetch("http://127.0.0.1:9001/api/" + route.join("-").toString());
     const liturgyElement = await response.json();
@@ -24,29 +27,29 @@ function IntendedText(props) {
 
 const recursiveTreeDisplay = (rendersLeft, obj, methods, content = [], route = []) => {
     for (const [key, value] of Object.entries(obj)) {
-        content.push(<IntendedText int={3-rendersLeft} text={value.type === "missa" ? value.name : key} route={[...route, key]} methods={methods} data={value} />);
+        content.push(<IntendedText int={3 - rendersLeft} text={value.type === "missa" ? value.name : key} route={[...route, key]} methods={methods} data={value} />);
         if (value.type !== "missa" && rendersLeft > 0) content = recursiveTreeDisplay(rendersLeft - 1, value, methods, content, [...route, key],);
     }
     return content;
 }
 
 function LiturgyTreeDisplay(props) {
+    const [isTreeHidden, setIsTreeHidden] = useState(false);
     if (props.data === null) return <div>Not initialized</div>
 
 
-    let content = recursiveTreeDisplay(3, props.data, props.methods, [], []);
+    let content = recursiveTreeDisplay(3, props.data, props.methods);
 
-    // for (const [key0, value0] of Object.entries(props.data)) {
-    //     content.push(<IntendedText int={0} text={key0} route={[key0]} triggerFn={props.triggerFn} data={value0} />)
-    //     for (const [key1, value1] of Object.entries(value0)) {
-    //         content.push(<IntendedText int={1} text={`${key1}`} route={[key0, key1]} data={value1} triggerFn={props.triggerFn} />)
-    //         for (const [key2, value2] of Object.entries(value1)) {
-    //             content.push(<IntendedText int={2} text={`${key2}`} route={[key0, key1, key2]} data={value2} triggerFn={props.triggerFn} />)
-    //         }
-    //     }
-    // }
-
-    return <div className="liturgy-display">{content}</div>
+    return (
+        <div className="liturgy-display">
+            <div className="tree-header">
+                <button onClick={() => setIsTreeHidden(!isTreeHidden)} className={isTreeHidden ? "rightway-button" : "leftway-button"}>←</button>
+            </div>
+            <div className={`tree-display ${!isTreeHidden ? "tree-visible" : "tree-hidden"}`}>
+                {content}
+            </div>
+        </div>
+    )
 }
 
 export default LiturgyTreeDisplay;

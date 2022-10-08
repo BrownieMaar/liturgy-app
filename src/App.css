@@ -39,7 +39,7 @@ p {
   flex-direction: row;
 }
 
-.main-display > div {
+.main-display>div {
   transition: all 0.5s;
   font-size: large;
   text-align: left;
@@ -50,44 +50,10 @@ p {
   transition: border 1s;
 }
 
-.liturgy-display {
-  min-width: 250px;
-}
-
-.liturgy-display:hover {
-  transition: border 1s;
-  border: 2px solid var(--foreground-highlight);
-}
-
-.tree-modification-button {
-  opacity: 0;
-
-  margin-left: 0.3rem;
-
-  border: 1px solid var(--foreground-color);
-  border-radius: 5px;
-
-  color: var(--foreground-color);
-  background-color: inherit;
-
-  transition: opacity 0.2s;
-}
-
-.tree-modification-button:hover {
-  background-color: var(--foreground-color);
-  color: var(--background-color);
-
-  cursor: pointer;
-}
-
-.tree-element:hover>.tree-modification-button {
-  transition: opacity 0.2s;
-  opacity: 1;
-}
-
 .clickable {
   cursor: pointer;
 }
+
 .clickable:hover {
   text-decoration: underline;
 }

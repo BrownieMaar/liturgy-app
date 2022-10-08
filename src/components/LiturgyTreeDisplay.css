@@ -1,0 +1,79 @@
+.tree-header {
+    display: flex;
+    flex-direction: row-reverse;
+    right: 0;
+}
+
+.tree-header>button {
+    border-radius: 30%;
+}
+
+.rightway-button {
+    transition: all .5s;
+    transform: rotate(180deg);
+}
+
+.leftway-button {
+    transition: all .5s;
+}
+
+.liturgy-display {
+    transition: all .5s;
+}
+
+.liturgy-display:hover {
+    transition: border 1s;
+    border: 2px solid var(--foreground-highlight);
+}
+
+.tree-modification-button {
+    opacity: 0;
+
+    margin-left: 0.3rem;
+
+    border: 1px solid var(--foreground-color);
+    border-radius: 5px;
+
+    color: var(--foreground-color);
+    background-color: inherit;
+
+    transition: opacity 0.2s;
+}
+
+.tree-modification-button:hover {
+    background-color: var(--foreground-color);
+    color: var(--background-color);
+
+    cursor: pointer;
+}
+
+.tree-element:hover>.tree-modification-button {
+    transition: opacity 0.2s;
+    opacity: 1;
+}
+
+.tree-element {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.tree-element>* {
+    display: inline-block;
+}
+
+.tree-display {
+    transition: all 0.5s;
+}
+
+.tree-visible {
+    opacity: 1;
+    transition: all .5s;
+    max-width: 300px;
+}
+
+.tree-hidden {
+    opacity: 0;
+    max-width: 0px;
+    transition: all .5s;
+}

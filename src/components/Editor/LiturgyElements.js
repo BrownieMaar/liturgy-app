@@ -1,4 +1,4 @@
-import GradualeElement from "./Types/GradualeElement.js"
+import GradualeElement from "./Types/Graduale/GradualeElement.js"
 
 
 const makeEditableDivsFromLitObject = part => {
@@ -11,7 +11,7 @@ export default function LiturgyElements(props) {
     const liturgy = props.data;
     const litDivElements = liturgy.map(makeEditableDivsFromLitObject)
     return <>
-        <div className="lit-structure"><p>{JSON.stringify(props.data, null, 4)}</p></div>
+        <div className="lit-structure" onClick={() => console.log(liturgy)}><p>{JSON.stringify(props.data)}</p></div>
         <div className="lit-structure">{litDivElements}</div>
         </>
 }

@@ -1,0 +1,23 @@
+.versus-edit {
+    padding: 0.2rem 0;
+}
+
+.versus-edit>* {
+    height: auto;
+    margin: 0;
+}
+
+.versus-edit>*>input {
+    padding: 0 0.2rem;
+}
+
+.versus-box {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.versus-box>div>p {
+    margin: 0;
+    margin-right: 0.5rem;
+}

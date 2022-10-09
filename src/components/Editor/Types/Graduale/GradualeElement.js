@@ -17,7 +17,11 @@ function GradEditor(props) {
                     <div className="versus-box">
                         <div><p>{i}.</p></div>
                         <div className="versus-edit">
-                            {versus.map((el, i) => <EntryEditor tag="p" liturgyObj={versus} targetElement={i} />)}
+                            {versus.map((el, i) => (i === 0 && versus.length === 3) ?
+                                <EntryEditor tag="p" liturgyObj={versus} targetElement={i} secondaryButton={["✖", () => {versus.shift()}]}/>
+                                :
+                                <EntryEditor tag="p" liturgyObj={versus} targetElement={i} />
+                            )}
                         </div>
                     </div>
                 )

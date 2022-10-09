@@ -5,6 +5,7 @@ import { useState } from "react"
  * @prop  tag : What tag to use
  * @prop  liturgyObj : the object to modify by element
  * @prop  targetElement : the object's element to modify
+ * @prop  {array} secondaryButton : first element the text to display, second the onclick
  * @returns an div with an element, which can be edited using an input tag
  */
 export default function EntryEditor(props) {
@@ -13,7 +14,7 @@ export default function EntryEditor(props) {
     return (
         <span className={`for-${props.tag}`}>
             {props.label ?
-                <CustomTag style={{ "marginRight": "0.5rem"}} >{props.label}:</CustomTag>
+                <CustomTag style={{ "marginRight": "0.5rem" }} >{props.label}:</CustomTag>
                 :
                 <></>
             }
@@ -28,7 +29,13 @@ export default function EntryEditor(props) {
                         onKeyUp={(e) => { if (e.key === "Enter") setIsEdited(!isEdited) }}
                     />
             }
-            {isEdited ? <button onClick={() => setIsEdited(!isEdited)}>✔</button> : <></>}
+            {isEdited ?
+            <>
+                <button onClick={() => setIsEdited(!isEdited)}>✔</button>
+                {props.secondaryButton ? <button onClick={() => props.secondaryButton[1]()}>{props.secondaryButton[0]}</button> : <></>} 
+            </>
+                :
+                <></>}
         </span>
     )
 }

@@ -60,6 +60,7 @@
 
 .tree-element>* {
     display: inline-block;
+    white-space: nowrap;
 }
 
 .tree-display {
